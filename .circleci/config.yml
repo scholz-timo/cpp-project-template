@@ -2,8 +2,8 @@ version: 2
 
 jobs:
   build:
-    ignore:
-      branches:
+    branches:
+      ignore:
         - development
         - /feature-.*/
         - /development-.*/
