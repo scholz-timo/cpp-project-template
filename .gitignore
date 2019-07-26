@@ -2,3 +2,5 @@ build/
 CMakeFiles
 CMakeFiles/
 CMakeFiles/*
+.vs/
+.vscode/
