@@ -1,0 +1,26 @@
+#!/usr/bin/python
+
+import os, sys
+
+def readFile(filename):
+    inputStream = open(filename)
+
+    result = inputStream.readlines();
+    inputStream.close();
+    return "".join(result);
+
+def writeFile(filename, contents):
+    outputStream = open(filename, "w");
+    outputStream.write(contents);
+    outputStream.close();
+    return;
+
+
+myFile = "CMakeLists.txt";
+cpp_version="17";
+
+input = readFile(myFile);
+input = input.replace("add_definitions(-std=c++11)", "add_definitions(-std=c++" + cpp_version + ")")
+input = input.replace("set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD " + cpp_version + ")")
+
+writeFile(myFile, input);
