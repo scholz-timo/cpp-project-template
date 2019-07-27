@@ -1,3 +1,3 @@
-# Game-Engine
+# CPP-Project-Template
 
-[![CircleCI](https://circleci.com/gh/OmniFaR/Game-Engine.svg?style=svg)](https://circleci.com/gh/OmniFaR/Game-Engine)
+[![CircleCI](https://circleci.com/gh/OmniFaR/cpp-project-template.svg?style=svg)](https://circleci.com/gh/OmniFaR/cpp-project-template)
