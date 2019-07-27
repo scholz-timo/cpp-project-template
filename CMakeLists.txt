@@ -5,10 +5,7 @@ project (GameEngine)
 # setup project configuration.
 
 set (GameEngine_VERSION_MAJOR 0)
-set (GameEngine_VERSION_MINOR 1)
-
-set (CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set (GameEngine_VERSION_MINOR 0)
 
 # configure cmake variables.
 
@@ -21,7 +18,15 @@ set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 # configure options.
 
 # TODO: make option do something.
-option(test "Build all tests." OFF) # Makes boolean 'test' available.
+option(TESTING "Build all tests." OFF)
+option(TESTING_ONLY "Build only the tests." OFF)
+
+if (TESTING_ONLY)
+	if (TESTING)
+	else()
+		set (TESTING ON)
+	endif()
+endif()
 
 # configure add_sources makro
 macro (add_sources)
@@ -45,4 +50,15 @@ add_subdirectory(ext)
 
 add_subdirectory(src)
 add_executable(run ${SRCS})
-target_link_libraries(run gtest_main)
+
+
+set_target_properties(run
+	PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED YES
+	CXX_EXTENSIONS NO
+)
+
+if (TESTING)
+	target_link_libraries(run gtest_main)
+endif()

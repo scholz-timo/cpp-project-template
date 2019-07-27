@@ -1,1 +1,3 @@
-add_subdirectory(googletest-download)
+if (TESTING)
+	add_subdirectory(googletest-download)
+endif()

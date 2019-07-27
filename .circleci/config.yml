@@ -25,7 +25,7 @@ jobs:
           command: 'apt--get update && apt-get install -y python'
       - run:
           name: Creating Build Files
-          command: 'cmake -G Ninja -H. -Bbuild'
+          command: 'cmake -G Ninja -H. -Bbuild' -DTESTING_ONLY=ON
       - run:
           name: Creating Binary Files
           command: 'cd build && ninja'

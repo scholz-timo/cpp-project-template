@@ -1,3 +1,5 @@
+# source: https://github.com/google/googletest/tree/master/googletest#incorporating-into-an-existing-cmake-project
+
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 
 execute_process(
@@ -31,6 +33,7 @@ endif(PYTHONINTERP_FOUND)
 
 set (py_cmd "change_required_cxx_version.py")
 
+# added this for compatibility with msvc.
 execute_process(
 	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${py_cmd}
 	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-src

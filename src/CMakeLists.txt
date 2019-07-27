@@ -5,5 +5,5 @@ configure_file (
 
 add_sources(main.cxx configuration.hh)
 
-add_subdirectory(Graphic)
-add_subdirectory(Utility)
+# add_subdirectory(Graphic)
+# add_subdirectory(Utility)

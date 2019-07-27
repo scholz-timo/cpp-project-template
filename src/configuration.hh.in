@@ -1,6 +1,8 @@
 #ifndef ENGINE_CONFIGURATION_HH_INCLUDED
 #define ENGINE_CONFIGURATION_HH_INCLUDED
 
+#cmakedefine TESTING
+#cmakedefine TESTING_ONLY
 #define GameEngine_VERSION_MAJOR ::std::string("@GameEngine_VERSION_MAJOR@")
 #define GameEngine_VERSION_MINOR ::std::string("@GameEngine_VERSION_MINOR@")
 
