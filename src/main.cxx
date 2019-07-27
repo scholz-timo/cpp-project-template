@@ -12,9 +12,15 @@ int main(int argc, char** argv) {
 	return RUN_ALL_TESTS();
 	#endif
 	
-	RUN_ALL_TESTS();
+	int result = RUN_ALL_TESTS();
 	#endif
 	
 	// code here.
 	std::cout << "starting: " << GameEngine_VERSION_MAJOR << ":" << GameEngine_VERSION_MINOR << std::endl;
+	
+	
+	#ifdef TESTING
+	return result;
+	#endif
+	return 0;
 }
