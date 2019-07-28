@@ -31,12 +31,17 @@ else(PYTHONINTERP_FOUND)
 	MESSAGE(FATAL_ERROR "Unable to locate Python Interpreter.")
 endif(PYTHONINTERP_FOUND)
 
-set (py_cmd "change_required_cxx_version.py")
-
 # added this for compatibility with msvc.
 execute_process(
-	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${py_cmd}
+	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/change_required_cxx_version.py
 	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-src
+)
+
+
+# added this for test collection.
+execute_process (
+	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/collect_tests.py
+	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests
 )
 
 add_subdirectory(
