@@ -6,4 +6,8 @@
 #define GameEngine_VERSION_MAJOR ::std::string("@GameEngine_VERSION_MAJOR@")
 #define GameEngine_VERSION_MINOR ::std::string("@GameEngine_VERSION_MINOR@")
 
+#ifdef TESTING
+#include "../tests/include_tests.hh"
+#endif // Testing enabled and tests imported.
+
 #endif // ENGINE_CONFIGURATION_HH_INCLUDED

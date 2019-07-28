@@ -18,7 +18,7 @@ set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 # configure options.
 
 # TODO: make option do something.
-option(TESTING "Build all tests." OFF)
+option(TESTING "Build all tests." ON)
 option(TESTING_ONLY "Build only the tests." OFF)
 
 if (TESTING_ONLY)
@@ -60,5 +60,6 @@ set_target_properties(run
 )
 
 if (TESTING)
+	add_subdirectory(tests)
 	target_link_libraries(run gtest_main)
 endif()
