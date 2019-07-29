@@ -17,7 +17,7 @@ def writeFile(filename, contents):
 
 
 myFile = "CMakeLists.txt";
-cpp_version="17";
+cpp_version="${CMAKE_CXX_STANDARD}";
 
 input = readFile(myFile);
 input = input.replace("add_definitions(-std=c++11)", "add_definitions(-std=c++" + cpp_version + ")")
