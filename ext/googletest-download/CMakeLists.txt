@@ -32,15 +32,17 @@ else(PYTHONINTERP_FOUND)
 endif(PYTHONINTERP_FOUND)
 
 # added this for compatibility with msvc.
+configure_file(change_required_cxx_version.py.in change_required_cxx_version.py)
 execute_process(
-	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/change_required_cxx_version.py
+	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/change_required_cxx_version.py
 	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 )
 
 
 # added this for test collection.
+configure_file(collect_tests.py.in collect_tests.py)
 execute_process (
-	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/collect_tests.py
+	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/collect_tests.py
 	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests
 )
 

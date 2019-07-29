@@ -15,9 +15,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 
-# configure options.
+set (TEST_EXTENSIONS "\".test.hpp\", \".test.hh\"")
 
-# TODO: make option do something.
+# configure options.
 option(TESTING "Build all tests." ON)
 option(TESTING_ONLY "Build only the tests." OFF)
 
