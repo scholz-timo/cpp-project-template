@@ -1,12 +1,5 @@
 cmake_minimum_required (VERSION 3.1)
 
-project (GameEngine)
-
-# setup project configuration.
-
-set (GameEngine_VERSION_MAJOR 0)
-set (GameEngine_VERSION_MINOR 0)
-
 # configure cmake variables.
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
@@ -40,12 +33,28 @@ macro (add_sources)
     endforeach()
     if (_relPath)
         # propagate SRCS to parent directory
-        set (SRCS ${SRCS} PARENT_SCOPE)
+        append_sources_to_parent()
     endif()
 endmacro()
 
+macro(append_sources_to_parent)
+    set (SRCS ${SRCS} PARENT_SCOPE)
+endmacro()
+
+
 # install external sources.
 add_subdirectory(ext)
+
+#
+# Initialize my project.
+#
+
+project (GameEngine)
+
+# setup project configuration.
+
+set (GameEngine_VERSION_MAJOR 0)
+set (GameEngine_VERSION_MINOR 0)
 
 
 add_subdirectory(src)
@@ -60,6 +69,6 @@ set_target_properties(run
 )
 
 if (TESTING)
-	add_subdirectory(tests)
+    add_subdirectory(tests)
 	target_link_libraries(run gtest_main)
 endif()

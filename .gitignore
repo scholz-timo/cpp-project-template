@@ -4,3 +4,5 @@ CMakeFiles/
 CMakeFiles/*
 .vs/
 .vscode/
+cmake-build-debug/
+.idea/
