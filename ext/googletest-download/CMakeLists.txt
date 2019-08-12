@@ -41,9 +41,10 @@ execute_process(
 
 # added this for test collection.
 configure_file(collect_tests.py.in collect_tests.py)
+set(target_directory ${PROJECT_SOURCE_DIR}/tests)
 execute_process (
 	COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/collect_tests.py
-	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests
+	WORKING_DIRECTORY ${target_directory}
 )
 
 add_subdirectory(
