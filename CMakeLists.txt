@@ -41,15 +41,15 @@ macro(append_sources_to_parent)
     set (SRCS ${SRCS} PARENT_SCOPE)
 endmacro()
 
-
-# install external sources.
-add_subdirectory(ext)
-
 #
 # Initialize my project.
 #
 
 project (GameEngine)
+
+# install external sources.
+add_subdirectory(ext)
+
 
 # setup project configuration.
 
