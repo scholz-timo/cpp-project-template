@@ -18,13 +18,14 @@
 	::testing::InitGoogleTest(&argc, argv); \
 	const int result = RUN_ALL_TESTS();\
 	\
-	[argc, argv] () fnc();\
+	([argc, argv] () fnc)();\
 	\
 	return result;\
 }
 #else
 #define RUN_MAIN(fnc, argc, argv) { \
-	fnc() \
+	([argc, argv] () fnc)(); \
+	return 0; \
 }
 #endif // TESTING
 #endif // TESTING_ONLY
