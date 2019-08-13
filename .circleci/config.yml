@@ -14,4 +14,4 @@ jobs:
       - setup_remote_docker
       - run:
           name: Run docker image
-          command: docker build -t OmniFaR/cpp-project-template:latest .
+          command: docker build -t omnifar/cpp-project-template:latest .
