@@ -14,4 +14,4 @@ jobs:
       - setup_remote_docker
       - run:
           name: Run docker image
-          command: docker build -t $IMAGE_NAME:latest .
+          command: docker build -t $IMAGE_NAME .
