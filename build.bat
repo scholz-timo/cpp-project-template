@@ -1,4 +1,4 @@
-@setlocal EnableDelayedExpansion 
+@setlocal EnableDelayedExpansion
 
 :loop
 IF NOT "%1"=="" (
@@ -16,26 +16,30 @@ IF NOT "%1"=="" (
 
 IF EXIST build (
 	cd build
+	goto _build
 ) ELSE (
 	mkdir build
 	cd build
-
-	set "args="
-
-	if DEFINED run_tests (
-		set "args=%args% -DTESTING=ON"
-	)
-
-	if DEFINED run_only_tests (
-		set "args=%args% -DTESTING_ONLY=ON"
-	)
-
-	cmake -G Ninja %args%  -DCMAKE_RC_COMPILER="llvm-rc" .. 
-
-	@echo off
-	set "command=cd .. ^&^& build"
-	echo %command% >> build.bat
-	@echo on
 )
+
+set "args="
+
+if DEFINED run_tests (
+	set "args=%args% -DTESTING=ON"
+)
+
+if DEFINED run_only_tests (
+	set "args=%args% -DTESTING_ONLY=ON"
+)
+
+cmake -G Ninja %args% -DCMAKE_RC_COMPILER="llvm-rc" .. 
+
+@echo off
+set "command=cd .. ^&^& build"
+echo %command% >> build.bat
+@echo on
+
+
+:_build
 
 ninja
