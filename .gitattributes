@@ -1,0 +1,4 @@
+build.sh text oel=lf
+run_docker.sh oel=lf
+run_docker.bat oel=crlf
+build.bat text oel=crlf

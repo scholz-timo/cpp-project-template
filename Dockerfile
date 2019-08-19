@@ -7,6 +7,10 @@ RUN apt-get install -y python
 
 COPY ./ project/
 
-RUN (cd project/ && mkdir build && cd build &&  cmake -G Ninja .. _DTESTING_ONLY=ON)
-RUN (cd project/build/ && ninja)
-RUN (project/build/bin/run)
+ARG run_tests=0
+ARG run_only_tests=0
+
+RUN (chmod 777 project/build.sh)
+RUN (cd project && sh build.sh run_tests=${run_tests} run_only_tests=${run_only_tests})
+
+CMD [ "project/build/bin/run" ]

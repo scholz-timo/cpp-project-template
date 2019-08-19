@@ -11,7 +11,7 @@ set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 set (TEST_EXTENSIONS "\".test.hpp\", \".test.hh\"")
 
 # configure options.
-option(TESTING "Build all tests." ON)
+option(TESTING "Build all tests." OFF)
 option(TESTING_ONLY "Build only the tests." OFF)
 
 if (TESTING_ONLY)
@@ -41,15 +41,15 @@ macro(append_sources_to_parent)
     set (SRCS ${SRCS} PARENT_SCOPE)
 endmacro()
 
-
-# install external sources.
-add_subdirectory(ext)
-
 #
 # Initialize my project.
 #
 
 project (GameEngine)
+
+# install external sources.
+add_subdirectory(ext)
+
 
 # setup project configuration.
 
