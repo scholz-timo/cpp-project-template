@@ -1,0 +1,14 @@
+name: Docker Image CI
+
+on: [pull_request]
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@master
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --build-arg run_only_tests=1 --tag my-image-name:$(date +%s)
